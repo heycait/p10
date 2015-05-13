@@ -1,0 +1,34 @@
+<h1>Create New Event</h1>
+
+<% @event.errors.full_messages.each do |error| %>
+  <h3><%= error %></h3>
+<% end %>
+
+<form method="post" action="/events">
+    <input type="hidden" name="user" value="<%= current_user.id %>" />
+  <div>
+    <input type="text" name="title" placeholder="Event Title" value="<%= @event.title %>" />
+  </div>
+
+  <div>
+    <input type="date" name="date" placeholder="Date" value="<%= @event.date %>"/>
+  </div>
+
+  <div>
+    <input type="time" name="time" placeholder="Time" value="<%= @event.time %>"/>
+  </div>
+
+  <div>
+    <input type="text" name="location" placeholder="Location" value="<%= @event.location %>"/>
+  </div>
+
+  <div>
+    <input type="text" name="description" placeholder="description" value="<%= @event.description %>"/>
+  </div>
+
+  <div>
+    <input type="integer" name="cost" placeholder="Cost" value="<%= @event.cost %>"/>
+  </div>
+
+  <input type="submit" value="Create" />
+</form>

@@ -17,10 +17,11 @@ gem 'rake'
 gem 'bcrypt-ruby'
 
 gem 'bcrypt'
-
+gem 'jasmine'
 gem 'shotgun'
 
 group :development, :test do
   gem 'faker'
   gem 'rspec'
+  gem 'pry-debugger'
 end

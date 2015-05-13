@@ -1,0 +1,7 @@
+<h1>Hello, <%= current_user.name %>!</h1>
+
+<h3>Your Events:</h3>
+
+<% current_user.events.each do |event| %>
+  <li><a href="/events/<%= event.id %>/show"><%= event.title %></a></li>
+<% end %>
