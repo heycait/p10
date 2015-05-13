@@ -4,7 +4,6 @@ get '/users/new' do
 end
 
 get '/login/new' do
-  @user = User.new
   erb :"users/login"
 end
 
@@ -13,6 +12,9 @@ post '/login' do
   if @user && @user.password == params[:password]
     login(@user)
     redirect '/homepage'
+  elsif @user != true
+    @error = "User does not exist"
+    erb :"users/login"
   else
     status 400
     @error = 'Invalid email/password combination'

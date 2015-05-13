@@ -4,7 +4,7 @@
 
 <form method="post" action="/login">
   <div>
-    <input type="email" name="email" placeholder="E-mail" value="<%= @user.email %>"/>
+    <input type="email" name="email" placeholder="E-mail" value="<%= @user.email if @user %>"/>
   </div>
 
   <div>

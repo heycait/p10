@@ -1,14 +1,3 @@
-get '/events/:id/show' do |id|
-  @event = Event.find(id)
-  @creator = User.where(id: @event.user_id).first
-
-  if @event && @creator
-    erb :"events/show_event"
-  else
-    "Event doesn't exist"
-  end
-end
-
 get '/events' do
   @events = Event.all
   erb :"events/all_events"
@@ -23,6 +12,24 @@ get '/events/new' do
   end
 end
 
+get '/events/:id' do
+  @event = Event.where(id: params[:id]).first
+
+  erb :"events/your_event"
+end
+
+get '/events/:id/show' do
+  @event = Event.where(id: params[:id]).first
+  @creator = User.where(id: @event.user_id).first if @event
+
+  if @event
+    erb :"events/show_event"
+  else
+    "This is not the event you are looking for. Move along."
+  end
+end
+
+
 post '/events' do
   @event = Event.new(
     title: params[:title],
@@ -35,8 +42,8 @@ post '/events' do
   )
   if @event.save
     "You just saved an event!"
-    params.inspect
-    # redirect to('/')
+    # params.inspect
+    redirect to("/events/#{@event.id}")
   else
     status 400
     erb :"events/new_event"
