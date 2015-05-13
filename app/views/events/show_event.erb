@@ -1,6 +1,21 @@
-<h2> <%= @creator.name %> Invites YOU to <%=@event.title%> on
-  <%=@event.date%> at </h2>
-<p>RSVP to <a href="mailto:<%=@creator.email%>"><%= @creator.email %></a></p>
+<h1> Your Invited!</h1>
 
+<p><strong>Event: </strong><%= @event.title %></p>
+<p><strong>Date: </strong><%= @event.date %></p>
+<p><strong>Time: </strong><%= @event.time %></p>
+<p><strong>Location: </strong><%= @event.location %></p>
+<p><strong>Description: </strong><%= @event.description %></p>
+<p><strong>Cost: </strong>$<%= @event.cost %></p>
+
+
+
+
+<h4>Confirm your details below to RSVP to this event</h4>
+<form method="post" action="/attendees" >
+  <input type="hidden" name="_method" value="put" />
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your E-mail" required />
+  <input type="Submit" value="Submit"/>
+</form>
 
 
