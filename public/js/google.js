@@ -34,8 +34,9 @@
            lng: coordinate.longitude,
          },
          map: map,
-         title: business.name,
+         title: '<p><strong>' + business.name + '</strong><br><br><strong>Rating:</strong> ' + business.rating + '<br><strong>Address:</strong> ' + business.location.address + '</p><p><strong>Review Snippet:</strong> ' + business.snippet_text + '</p><p><a href="/events/new">Create Event</a></p>',
       });
+
 
       var infowindow = new google.maps.InfoWindow({
         content: marker['title']
