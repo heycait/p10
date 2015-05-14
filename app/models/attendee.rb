@@ -1,5 +1,7 @@
+require 'sendgrid-ruby'
+
 class Attendee < ActiveRecord::Base
-  # Remember to create a migration!
+
   belongs_to :event
 
   validates :email, presence: true

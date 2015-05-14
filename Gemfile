@@ -12,10 +12,11 @@ gem 'thin'
 
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
-
+gem 'sendgrid-ruby'
 gem 'rake'
-gem 'bcrypt-ruby'
 
+gem 'httparty'
+gem 'bcrypt-ruby'
 gem 'bcrypt'
 gem 'jasmine'
 gem 'shotgun'
@@ -24,4 +25,5 @@ group :development, :test do
   gem 'faker'
   gem 'rspec'
   gem 'pry-debugger'
+  gem 'dotenv'
 end

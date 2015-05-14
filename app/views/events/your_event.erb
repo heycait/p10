@@ -11,6 +11,7 @@
 <div>
   <h3>Send Invites</h3>
   <form method="post" action="/attendees">
+    <input type="hidden" name="event_id" value="<%= @event.id%>" />
     <textarea name="attendees_emails" placeholder="Separate emails with space and comma"></textarea>
     <input type="submit" value="Send"/>
   </form>
