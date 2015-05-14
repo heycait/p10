@@ -13,6 +13,7 @@ gem 'thin'
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
 gem 'sendgrid-ruby'
+gem 'yelp'
 gem 'rake'
 
 gem 'httparty'
