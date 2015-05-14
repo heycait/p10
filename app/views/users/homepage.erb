@@ -1,7 +1,59 @@
+<br><br><br>
+
 <h1>Hello, <%= current_user.name %>!</h1>
 
-<h3>Your Events:</h3>
 
-<% current_user.events.each do |event| %>
-  <li><a href="/events/<%= event.id %>"><%= event.title %></a></li>
-<% end %>
+
+<form method="/post" action="">
+
+</form>
+
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/events/new">Create Event</a></li>
+        <li><a href="/logout">Logout</a></li>
+        <!-- <li><a href="#contact">Contact</a></li> -->
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="starter-template">
+    <h1>Your Events:</h1>
+  <% current_user.events.each do |event| %>
+    <li><a href="/events/<%= event.id %>"><%= event.title %></a></li>
+  <% end %>
+
+  </div>
+
+
+
+
+</div><!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+

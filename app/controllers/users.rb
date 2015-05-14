@@ -4,7 +4,11 @@ get '/users/new' do
 end
 
 get '/login/new' do
-  erb :"users/login"
+  if logged_in?
+    redirect '/homepage'
+  else
+    erb :"users/login"
+  end
 end
 
 post '/login' do

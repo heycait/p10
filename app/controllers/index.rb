@@ -1,8 +1,10 @@
+require 'awesome_print'
+
 get '/' do
   if logged_in?
     erb :"users/homepage"
   else
-    erb :index
+    erb :welcome
   end
 end
 

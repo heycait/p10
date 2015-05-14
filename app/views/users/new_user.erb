@@ -1,21 +1,24 @@
-<h1>Sign Up!</h1>
+<center><h1>Sign Up!</h1></center>
 
 <% @user.errors.full_messages.each do |error| %>
   <p><%= error %></p>
 <% end %>
 
+
 <form method="post" action="/users">
-  <div>
-    Name <input type="text" name="name" placeholder="Name" />
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" class="form-control" name="name" id="exampleInputEmail1" placeholder="Enter Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
 
-  <div>
-    E-mail <input type="email" name="email" placeholder="Email" />
-  </div>
-
-  <div>
-    Password <input type="password" name="password" placeholder="Password" />
-  </div>
-
-  <input type="submit" value="Submit" />
+  <input type="submit" class="btn btn-default" value="Submit" />
+  <!-- <button type="submit" class="btn btn-default">Submit</button> -->
 </form>

@@ -73,3 +73,13 @@ form.quirks {
   margin-right: 20px;
   width: 200px;
 }*/
+
+.right-nav {
+  float: right;
+  margin-right: 1%;
+}
+
+#signup a:hover, #login a:hover {
+  text-decoration: none;
+}
+

@@ -21,6 +21,7 @@ gem 'bcrypt-ruby'
 gem 'bcrypt'
 gem 'jasmine'
 gem 'shotgun'
+gem 'awesome_print'
 
 group :development, :test do
   gem 'faker'
