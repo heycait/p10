@@ -7,10 +7,16 @@ post '/attendees' do
 
   @attendees_emails.each do |email|
     Attendee.create!(email: email, event_id: @event_id)
-    shoot_email({to: email, from: @creator.email, subject: "You're Invited to #{@event.title}", message: "link to event /events/id/show something like that"})
+    shoot_email({
+      to: email,
+      from: @creator.email,
+      subject: "#{@creator.name} invites you to #{@event.title}",
+      message:
+              "<h3>#{@event.title}</h3>
+               <p><strong>Date:</strong> #{@event.date}</p>
+               <p><strong>Location:</strong> #{@event.location}</p>
+               <p><strong>Description:</strong><br>#{@event.description}</p>
+               <p><strong>RSVP to this event <a href='/events/<%= @event.id %>/show'>here</a>.</strong></p>"
+      })
   end
-
-
-
-  # shoot_emails({to: 'heyy.yu@gmail.com' , from: 'caitlynmyu@gmail.com' , subject: 'testing',message: 'test'})
 end

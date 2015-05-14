@@ -19,6 +19,10 @@
 
 
 <div>
+
   <h5>Invitations Sent To:</h5>
+  <% @attendees.each do |attendee| %>
+    <li><%= attendee.email %></li>
+  <% end %>
 
 </div>

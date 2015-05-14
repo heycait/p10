@@ -14,7 +14,7 @@ end
 
 get '/events/:id' do
   @event = Event.where(id: params[:id]).first
-
+  @attendees = Attendee.where(event_id: params[:id])
   erb :"events/your_event"
 end
 
