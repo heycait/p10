@@ -26,19 +26,24 @@
   }
 
   var drawBusinesses = function(businesses){
-    businesses.forEach(function(businesse){
-      var coordinate = businesse.location.coordinate;
+    businesses.forEach(function(business){
+      var coordinate = business.location.coordinate;
       var marker = new google.maps.Marker({
          position: {
            lat: coordinate.latitude,
            lng: coordinate.longitude,
          },
          map: map,
-         title: businesse.name,
+         title: business.name,
       });
 
+      var infowindow = new google.maps.InfoWindow({
+        content: marker['title']
+        });
+
       google.maps.event.addListener(marker, 'click', function() {
-        console.log('CLICKED ON', businesse);
+        console.log('CLICKED ON', business);
+        infowindow.open(map, marker)
       });
 
     });
@@ -59,7 +64,6 @@
       google.maps.event.addListener(map, 'center_changed', function() {
         centerChanged();
       });
-
     });
 
   });
