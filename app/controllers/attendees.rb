@@ -27,7 +27,7 @@ post '/attendees' do
 end
 
 put '/rsvp' do
-  @attendee = Attendee.where(email: params[:email]).first
+  @attendee = Attendee.where(email: params[:email], event_id: params[:event_id]).first
   if @attendee
     @attendee.name = params[:name]
     @attendee.rsvp = params[:rsvp]

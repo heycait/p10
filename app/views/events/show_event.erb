@@ -52,6 +52,7 @@
     <h4>Confirm your details below to RSVP to this event</h4>
     <form method="post" action="/rsvp" >
       <input type="hidden" name="_method" value="put" />
+      <input type="hidden" name="event_id" value="<%= @event.id %>" />
       <input type="hidden" name="rsvp" value="true" />
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your E-mail" required />
