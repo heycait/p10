@@ -7,4 +7,17 @@ $(document).ready(function () {
     request.done(function () { window.location = "/"; });
   });
 
+  $('#map-canvas').on('click', '.marker_link', function(e){
+    e.preventDefault();
+
+    var request = $.ajax({
+      method: 'GET',
+      url: $(e.target).attr("href"),
+    });
+
+    request.done(function(response){
+      debugger
+    });
+  });
+
 });

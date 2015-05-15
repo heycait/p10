@@ -6,7 +6,11 @@ end
 get '/events/new' do
   if current_user
     @event = Event.new
-    erb :"events/new_event"
+    if request.xhr?
+      erb :"events/new_event", layout: false
+    else
+      erb :"events/new_event"
+    end
   else
     "Please login in first to create an event"
   end
