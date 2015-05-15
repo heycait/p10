@@ -32,7 +32,7 @@ put '/rsvp' do
     @attendee.name = params[:name]
     @attendee.rsvp = params[:rsvp]
     @attendee.save
-    "Thanks for RSVPing!"
+    "You down!"
   else
     status 400
     "You ain't down"
