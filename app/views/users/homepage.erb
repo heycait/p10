@@ -28,7 +28,7 @@
 <div id="map-canvas"></div><div id="append"></div><div id="append-2"></div>
 
 <div class="container">
-  <div class="starter-template">
+  <div class="starter-template add_event">
     <h1>Your Events:</h1>
   <% current_user.events.each do |event| %>
     <li><a href="/events/<%= event.id %>"><%= event.title %></a></li>

@@ -16,14 +16,14 @@ post '/attendees' do
                <p><strong>Date:</strong> #{@event.date}</p>
                <p><strong>Location:</strong> #{@event.location}</p>
                <p><strong>Description:</strong><br>#{@event.description}</p>
-               <p><strong>RSVP to this event <a href='/events/<%= @event.id %>/show'>here</a>.</strong></p>"
+               <p><strong>RSVP to this event <a href='http://floating-lake-6021.herokuapp.com/events/<%= @event.id %>/show'>here</a>.</strong></p>"
       })
    end
-   # if request.xhr?
-
-   # else
-   #  redirect "/events/#{params[:event_id]}"
-   # end
+   if request.xhr?
+    @event.to_json
+   else
+    redirect "/events/#{params[:event_id]}"
+   end
 end
 
 put '/rsvp' do

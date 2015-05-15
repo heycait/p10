@@ -1,7 +1,7 @@
 <div class="your_event">
   <br><br><br>
 
-  <h1><%= @event.title %></h1>
+  <h1><a href="/events/<%= @event.id %>"><%= @event.title %></a></h1>
   <p><strong>Date:</strong> <%= @event.date %></p>
   <p><strong>Time:</strong> <%= @event.time %></p>
   <p><strong>Location:</strong> <%= @event.location %></p>
@@ -18,7 +18,7 @@
     </form>
   </div>
 
-  <div>
+  <div id="invitations">
     <% if @attendees %>
       <h5>Invitations Sent To:</h5>
       <% @attendees.each do |attendee| %>

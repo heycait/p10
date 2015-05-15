@@ -46,8 +46,9 @@ $(document).ready(function () {
   $('#append-2').on('click', ':submit', function(e){
     console.log("You invited some peeps, homies, and honies")
     e.preventDefault();
-    debugger
+
     var attendee_data = $(this).parent().serialize()
+    var $form_field = $(this).siblings('textarea')
 
     var request = $.ajax({
       method: 'POST',
@@ -56,9 +57,15 @@ $(document).ready(function () {
       dataType: 'json',
     });
 
+    $form_field.val('')
+
     request.done(function(response){
-      console.log(response)
-      debugger
+      // console.log(response)
+      // var new_li = '<li><li>'.text('<a href="/events/<%= response.id %>"><%= response.title %></a>')
+      // $('.add_event').append(new_li)
+      // debugger
     });
   });
 });
+
+// <li><a href="/events/<%= event.id %>"><%= event.title %></a></li>
