@@ -32,19 +32,33 @@ $(document).ready(function () {
     var form = $(this).parent().parent()
     var form_data = $(this).parent().serialize()
     var request = $.ajax({
-      method: "POST",
+      method: 'POST',
       url: '/events',
       data: form_data,
-      // dataType: 'json'
     });
 
     request.done(function(response){
       form.remove()
-      // form.replaceWith(response)
       $('#append-2').append(response)
+    });
+  });
+
+  $('#append-2').on('click', ':submit', function(e){
+    console.log("You invited some peeps, homies, and honies")
+    e.preventDefault();
+    debugger
+    var attendee_data = $(this).parent().serialize()
+
+    var request = $.ajax({
+      method: 'POST',
+      url: '/attendees',
+      data: attendee_data,
+      dataType: 'json',
+    });
+
+    request.done(function(response){
       console.log(response)
       debugger
     });
   });
-
 });

@@ -18,8 +18,12 @@ post '/attendees' do
                <p><strong>Description:</strong><br>#{@event.description}</p>
                <p><strong>RSVP to this event <a href='/events/<%= @event.id %>/show'>here</a>.</strong></p>"
       })
-  end
-  redirect "/events/#{params[:event_id]}"
+   end
+   # if request.xhr?
+
+   # else
+   #  redirect "/events/#{params[:event_id]}"
+   # end
 end
 
 put '/rsvp' do
