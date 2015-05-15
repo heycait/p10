@@ -3,7 +3,7 @@ class CreateAttendees < ActiveRecord::Migration
     create_table :attendees do |t|
       t.string :name
       t.string :email
-      t.integer :rsvp, default: 0
+      t.boolean :rsvp, :default => false
       t.belongs_to :event
 
       t.timestamps

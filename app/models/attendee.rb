@@ -6,9 +6,4 @@ class Attendee < ActiveRecord::Base
 
   validates :email, presence: true
 
-  def save(attendees_emails)
-    attendees_emails.each do |email|
-      Attendee.create!(email: email)
-    end
-  end
 end

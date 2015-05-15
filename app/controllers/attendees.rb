@@ -19,4 +19,18 @@ post '/attendees' do
                <p><strong>RSVP to this event <a href='/events/<%= @event.id %>/show'>here</a>.</strong></p>"
       })
   end
+  redirect "/events/#{params[:event_id]}"
+end
+
+put '/rsvp' do
+  @attendee = Attendee.where(email: params[:email]).first
+  if @attendee
+    @attendee.name = params[:name]
+    @attendee.rsvp = params[:rsvp]
+    @attendee.save
+    "Thanks for RSVPing!"
+  else
+    status 400
+    "You ain't down"
+  end
 end

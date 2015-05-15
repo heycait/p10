@@ -1,34 +1,29 @@
-<br><br><br>
+<div class="your_event">
+  <br><br><br>
 
-<h1><%= @event.title %></h1>
+  <h1><%= @event.title %></h1>
+  <p><strong>Date:</strong> <%= @event.date %></p>
+  <p><strong>Time:</strong> <%= @event.time %></p>
+  <p><strong>Location:</strong> <%= @event.location %></p>
+  <p><strong>Description: </strong><%= @event.description %></p>
+  <p><strong>Cost: </strong><%= @event.cost %></p>
 
-<p><strong>Date:</strong> <%= @event.date %></p>
-<p><strong>Time:</strong> <%= @event.time %></p>
-<p><strong>Location:</strong> <%= @event.location %></p>
-<p><strong>Description: </strong><%= @event.description %></p>
-<p><strong>Cost: </strong><%= @event.cost %></p>
+  <br><br>
+  <div>
+    <h3>Send Invites</h3>
+    <form method="post" action="/attendees">
+      <input type="hidden" name="event_id" value="<%= @event.id%>" />
+      <textarea name="attendees_emails" placeholder="Separate emails a comma only"></textarea>
+      <input type="submit" value="Send"/>
+    </form>
+  </div>
 
-
-
-
-
-
-<br><br>
-<div>
-  <h3>Send Invites</h3>
-  <form method="post" action="/attendees">
-    <input type="hidden" name="event_id" value="<%= @event.id%>" />
-    <textarea name="attendees_emails" placeholder="Separate emails with space and comma"></textarea>
-    <input type="submit" value="Send"/>
-  </form>
-</div>
-
-
-<div>
-
-  <h5>Invitations Sent To:</h5>
-  <% @attendees.each do |attendee| %>
-    <li><%= attendee.email %></li>
-  <% end %>
-
+  <div>
+    <% if @attendees %>
+      <h5>Invitations Sent To:</h5>
+      <% @attendees.each do |attendee| %>
+        <li><%= attendee.email %>: RSVPed? <%= attendee.rsvp %></li>
+      <% end %>
+    <% end %>
+  </div>
 </div>

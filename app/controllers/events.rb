@@ -27,7 +27,7 @@ get '/events/:id/show' do
   @creator = User.where(id: @event.user_id).first if @event
 
   if @event
-    erb :"events/show_event"
+    erb :"events/show_event", layout: false
   else
     "This is not the event you are looking for. Move along."
   end
@@ -45,9 +45,14 @@ post '/events' do
     cost: params[:cost],
   )
   if @event.save
-    "You just saved an event!"
-    # params.inspect
-    redirect to("/events/#{@event.id}")
+    if request.xhr?
+      # @event.to_json
+      erb :"events/your_event", layout: false
+    else
+      "You just saved an event!"
+      # params.inspect
+      redirect to("/events/#{@event.id}")
+    end
   else
     status 400
     erb :"events/new_event"
