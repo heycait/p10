@@ -1,10 +1,6 @@
 require 'yelp'
 
 helpers do
-  YELP_CONSUMER_KEY = "jeo_AxMxHABXBSbjp3c05w"
-  YELP_CONSUMER_SECRET = "aTEPrIsUilZdFQ30sUe6Noi6GAQ"
-  YELP_TOKEN = "p6hEekCEwziuxfFNjJNdrPUy8HERbyq_"
-  YELP_TOKEN_SECRET = "TXM0ZaKL8ZVYVMwCycRh54Hra8c"
 
   def yelp_client
     @yelp_client ||= Yelp::Client.new({
