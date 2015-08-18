@@ -8,9 +8,13 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 # Require gems we care about
 require 'rubygems'
 
+if ENV['RACK_ENV'] == 'test' || ENV['RACK_ENV'] == 'development'
+  require 'dotenv'
+  Dotenv.load
+end
+
 require 'uri'
 require 'pathname'
-
 require 'pg'
 require 'active_record'
 require 'logger'

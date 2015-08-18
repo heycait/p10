@@ -1,0 +1,2 @@
+user = ENV['USER']
+password = ENV['PW']
